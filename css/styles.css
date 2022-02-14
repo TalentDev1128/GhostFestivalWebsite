@@ -1,0 +1,594 @@
+.body {
+  position: initial;
+  max-width: 990px;
+  background-image: url(../images/website-hero-section.jpg),
+    linear-gradient(180deg, #202020, #202020);
+  background-position: 50% 50%, 0px 0px;
+  background-size: auto, auto;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed, scroll;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.pills {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.pills-tab {
+  background-color: rgba(0, 0, 0, 0.66);
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 0.7rem 0.75rem;
+  justify-content: center;
+}
+
+.nav-pills-item {
+  padding: 5px 0;
+}
+
+.nav-pills-item-home {
+  padding: 5px 0.75rem;
+}
+
+.nav-button-base {
+  margin-right: 5px;
+  margin-left: 5px;
+  border-style: none !important;
+  border-width: 3px !important;
+  border-radius: 10px !important;
+  font-family: "Changa One", Impact, sans-serif;
+  font-size: 20px;
+}
+
+.nav-button-home {
+  outline-color: #5b00da;
+  outline-offset: 0px;
+  outline-style: solid;
+  outline-width: 3px;
+  background-color: #0f9 !important;
+  color: #5b00da;
+}
+
+.nav-button-active {
+  outline-color: #0f9 !important;
+  outline-offset: 0px;
+  outline-style: solid !important;
+  outline-width: 3px !important;
+  background-color: #5b00da !important;
+  color: #0f9 !important;
+}
+
+.nav-button-inactive {
+  outline-color: #5b00da !important;
+  outline-offset: 0px;
+  outline-style: dotted !important;
+  outline-width: 3px !important;
+  background-color: rgba(0, 255, 153, 0) !important;
+  color: #0f9 !important;
+}
+
+.nav-button-wallet {
+  outline-color: #5b00da;
+  outline-offset: 0px;
+  outline-style: solid;
+  outline-width: 3px;
+  background-color: #f06 !important;
+  color: #ff0 !important;
+}
+
+.tab-container {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.title {
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 60px;
+  font-weight: 400;
+  text-shadow: 5px 5px 0 #5b00da;
+}
+
+.box-group {
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.box {
+  /* width: 32%; */
+  border-style: solid;
+  border-width: 1px;
+  border-color: #5b00da;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.77);
+  opacity: 1;
+  outline-color: #0f9;
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
+  /* height: 100%; */
+  height: 620px;
+  margin-bottom: 5px;
+}
+
+.sub-title {
+  font-size: 42px;
+  text-shadow: 3px 3px 0 #5b00da;
+  padding-left: 26px;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  line-height: 0.85em;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.crate-image {
+  max-width: 303px;
+  padding: 5px 30px;
+}
+
+.crate-image-for-badge {
+  max-width: 303px;
+  padding: 5px 30px 50px 30px;
+}
+
+.text-span {
+  color: #f06;
+}
+
+.paragraph {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 62px 10px 75px;
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.upgrade-choose-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.upgrade-choose-btn {
+  margin-bottom: 0px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 15px;
+  background-color: #0f9;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #5b00da;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.card-box {
+  display: flex;
+  justify-content: start;
+}
+
+.card-box-image {
+  margin: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0f9;
+  border-radius: 10px;
+  width: 140px;
+}
+
+.card-box-paragraph {
+  font-family: "Varela Round", sans-serif;
+  color: #0f9;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.card-box-span {
+  font-family: "Changa One", Impact, sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.upgrade-footer {
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 150px;
+}
+
+.total-soul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  width: 350px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.86);
+  outline-color: #5b00da;
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
+  text-align: center;
+}
+
+.total-text {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.total-value {
+  font-family: "Changa One", Impact, sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #ff0;
+  font-size: 32px;
+}
+
+.upgrade-button {
+  margin-left: 60px;
+  padding: 10px 35px;
+  border-radius: 10px;
+  background-image: linear-gradient(180deg, #ffff24 63%, #df5702);
+  outline-color: #fff;
+  outline-offset: 0px;
+  outline-style: dashed;
+  outline-width: 3px;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #f06;
+  font-size: 32px;
+  text-align: center;
+}
+
+.box-for-badge {
+  /* width: 32%; */
+  border-style: solid;
+  border-width: 1px;
+  border-color: #5b00da;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.77);
+  opacity: 1;
+  outline-color: #0f9;
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
+  /* height: 100%; */
+  height: 860px;
+  margin-bottom: 5px;
+}
+
+.badge-box {
+  display: flex;
+  justify-content: start;
+  padding: 12px 5px;
+}
+
+.badge-box-image {
+  margin: 0px 11px 11px 11px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0f9;
+  border-radius: 10px;
+  width: 127px;
+}
+
+.break-set-badge-image {
+  margin: 0px 11px 11px 11px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0f9;
+  border-radius: 10px;
+  width: 121px;
+}
+
+.badge-text {
+  text-align: center;
+  margin-bottom: 0px;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.badge-choose-btn {
+  margin-bottom: 10px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 15px;
+  background-color: #0f9;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #5b00da;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.create-set {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.create-set-button {
+  height: 60px;
+  align-items: center;
+  display: flex;
+  padding: 0px 20px;
+  margin-left: 31px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: #ff0;
+  border-radius: 10px;
+  background-color: #f06;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 28px;
+}
+
+.your-sets {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0f9;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 38px;
+  font-weight: 400;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.break-set-box {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0f9;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.break-set-id {
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.break-set-group {
+  margin-top: 10px;
+}
+
+.break-set-each {
+  /* width: 32%; */
+  align-items: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 470px;
+  margin-bottom: 5px;
+}
+
+.mint-box-each {
+  align-items: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 610px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.break-nft-number {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.break-nft-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.break-nft-image {
+  max-width: 250px;
+  margin: 10px 25px;
+}
+
+.break-set-footer {
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.break-set-button {
+  margin-top: 5px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  background-color: #5b00da;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.open-crate {
+  margin: 15px auto;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 10px 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #f06;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 24px;
+}
+
+.mint-count-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  line-height: 24px;
+}
+
+.total-mint-price {
+  display: flex;
+  justify-content: center;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.total-mint-number {
+  margin: 0px 25px;
+  padding: 9px 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #f06;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 24px;
+}
+
+.mint-plus-minus {
+  border: none;
+  padding: 9px 15px;
+  border-radius: 20px;
+  background-color: #5b00da;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 24px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #100a2a;
+  opacity: 80%;
+  margin: 8% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .tab-container {
+    padding-top: 270px;
+    padding-bottom: 130px;
+  }
+
+  .upgrade-footer {
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px 35px;
+  }
+
+  .upgrade-button {
+    margin: 10px auto;
+    padding: 10px 35px;
+    border-radius: 10px;
+    background-image: linear-gradient(180deg, #ffff24 63%, #df5702);
+    outline-color: #fff;
+    outline-offset: 0px;
+    outline-style: dashed;
+    outline-width: 3px;
+    font-family: "Changa One", Impact, sans-serif;
+    color: #f06;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .box {
+    /* width: 32%; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #5b00da;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.77);
+    opacity: 1;
+    outline-color: #0f9;
+    outline-offset: 0px;
+    outline-style: none;
+    outline-width: 3px;
+    /* height: 100%; */
+    height: 550px;
+    margin-bottom: 5px;
+  }
+}

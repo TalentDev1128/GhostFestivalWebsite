@@ -1,0 +1,110 @@
+<div class="title">Mint</div>
+<div class="break-set-group row">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="mint-box-each">
+      <div class="sub-title">
+        <h1 class="heading">
+          Common <br /><span class="text-span">Founder's<br />Crate</span>.
+        </h1>
+      </div>
+      <img
+        id="w-node-_01904fc0-0add-e2ae-6d9b-69c768e1b291-48a42f58"
+        src="../images/Render-1-test.png"
+        loading="lazy"
+        srcset="
+          ../images/Render-1-test-p-500.png  500w,
+          ../images/Render-1-test-p-800.png  800w,
+          ../images/Render-1-test.png       1080w
+        "
+        sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
+        class="break-nft-image"
+      />
+      <p class="break-nft-text">38/5000</p>
+      <div class="mint-count-row">
+        <button class="mint-plus-minus" ng-click="controlMintCount(1, -1)">
+          -
+        </button>
+        <div class="total-mint-number">{{commonCrateCount}}</div>
+        <button class="mint-plus-minus" ng-click="controlMintCount(1, 1)">
+          +
+        </button>
+      </div>
+      <div class="total-mint-price">{{totalCommonCratePrice}} SOUL</div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="mint-box-each">
+      <div class="sub-title">
+        <h1 class="heading">
+          Rare <br /><span class="text-span">Founder's<br />Crate</span>.
+        </h1>
+      </div>
+      <img
+        id="w-node-_01904fc0-0add-e2ae-6d9b-69c768e1b291-48a42f58"
+        src="../images/Render-1-test.png"
+        loading="lazy"
+        srcset="
+          ../images/Render-1-test-p-500.png  500w,
+          ../images/Render-1-test-p-800.png  800w,
+          ../images/Render-1-test.png       1080w
+        "
+        sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
+        class="break-nft-image"
+      />
+      <p class="break-nft-text">38/5000</p>
+      <div class="mint-count-row">
+        <button class="mint-plus-minus" ng-click="controlMintCount(2, -1)">
+          -
+        </button>
+        <div class="total-mint-number">{{rareCrateCount}}</div>
+        <button class="mint-plus-minus" ng-click="controlMintCount(2, 1)">
+          +
+        </button>
+      </div>
+      <div class="total-mint-price">{{totalRareCratePrice}} SOUL</div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="mint-box-each">
+      <div class="sub-title">
+        <h1 class="heading">
+          Epic <br /><span class="text-span">Founder's<br />Crate</span>.
+        </h1>
+      </div>
+      <img
+        id="w-node-_01904fc0-0add-e2ae-6d9b-69c768e1b291-48a42f58"
+        src="../images/Render-1-test.png"
+        loading="lazy"
+        srcset="
+          ../images/Render-1-test-p-500.png  500w,
+          ../images/Render-1-test-p-800.png  800w,
+          ../images/Render-1-test.png       1080w
+        "
+        sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
+        class="break-nft-image"
+      />
+      <p class="break-nft-text">38/5000</p>
+      <div class="mint-count-row">
+        <button class="mint-plus-minus" ng-click="controlMintCount(3, -1)">
+          -
+        </button>
+        <div class="total-mint-number">{{epicCrateCount}}</div>
+        <button class="mint-plus-minus" ng-click="controlMintCount(3, 1)">
+          +
+        </button>
+      </div>
+      <div class="total-mint-price">{{totalEpicCratePrice}} SOUL</div>
+    </div>
+  </div>
+</div>
+<div class="upgrade-footer row">
+  <div class="total-soul col-lg-4 col-md-4 col-sm-8 col-xs-8">
+    <div class="total-text">Total</div>
+    <div class="total-value">
+      {{totalCommonCratePrice + totalRareCratePrice + totalEpicCratePrice}} SOUL
+    </div>
+  </div>
+  <button class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8">
+    BUY
+  </button>
+</div>
