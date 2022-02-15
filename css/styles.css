@@ -362,6 +362,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .break-set-box {
@@ -414,7 +415,7 @@
   border-color: #5b00da;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.7);
-  height: 610px;
+  height: 670px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -441,9 +442,14 @@
   text-align: center;
 }
 
-.break-nft-image {
+.break-crate-image {
   max-width: 250px;
   margin: 10px 25px;
+}
+
+.break-nft-image {
+  max-width: 250px;
+  margin: 40px 25px;
 }
 
 .break-set-footer {
@@ -518,6 +524,37 @@
   font-family: "Changa One", Impact, sans-serif;
   color: #ff0;
   font-size: 24px;
+}
+
+.connectBtn {
+  margin-right: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #f06;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  padding: 5px 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.connectBtn:hover {
+  color: #ffd800;
+  border-color: #673ab7;
+}
+
+.poltergeist {
+  margin: 10px 0;
+  width: 100%;
+  background-color: darkgreen;
+}
+
+.ecto {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #ff2a00;
 }
 
 /* The Modal (background) */

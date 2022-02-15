@@ -14,9 +14,6 @@ const activateNavBtn = (id) => {
   document
     .getElementById("pills-rent-tab")
     .classList.remove("nav-button-active");
-  document
-    .getElementById("pills-guide-tab")
-    .classList.remove("nav-button-active");
 
   document
     .getElementById("pills-mint-tab")
@@ -32,9 +29,6 @@ const activateNavBtn = (id) => {
     .classList.add("nav-button-inactive");
   document
     .getElementById("pills-rent-tab")
-    .classList.add("nav-button-inactive");
-  document
-    .getElementById("pills-guide-tab")
     .classList.add("nav-button-inactive");
 
   document.getElementById(id).classList.remove("nav-button-active");

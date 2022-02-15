@@ -19,12 +19,14 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">38/5000</p>
+      <p class="break-nft-text">{{commonCurrentSupply}}/9000</p>
       <div class="mint-count-row">
         <button class="mint-plus-minus" ng-click="controlMintCount(1, -1)">
           -
         </button>
-        <div class="total-mint-number">{{commonCrateCount}}</div>
+        <div class="total-mint-number" id="commonMintNumber">
+          {{commonCrateCount}}
+        </div>
         <button class="mint-plus-minus" ng-click="controlMintCount(1, 1)">
           +
         </button>
@@ -51,12 +53,14 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">38/5000</p>
+      <p class="break-nft-text">{{rareCurrentSupply}}/3000</p>
       <div class="mint-count-row">
         <button class="mint-plus-minus" ng-click="controlMintCount(2, -1)">
           -
         </button>
-        <div class="total-mint-number">{{rareCrateCount}}</div>
+        <div class="total-mint-number" id="rareMintNumber">
+          {{rareCrateCount}}
+        </div>
         <button class="mint-plus-minus" ng-click="controlMintCount(2, 1)">
           +
         </button>
@@ -83,12 +87,14 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">38/5000</p>
+      <p class="break-nft-text">{{epicCurrentSupply}}/500</p>
       <div class="mint-count-row">
         <button class="mint-plus-minus" ng-click="controlMintCount(3, -1)">
           -
         </button>
-        <div class="total-mint-number">{{epicCrateCount}}</div>
+        <div class="total-mint-number" id="epicMintNumber">
+          {{epicCrateCount}}
+        </div>
         <button class="mint-plus-minus" ng-click="controlMintCount(3, 1)">
           +
         </button>
@@ -104,7 +110,10 @@
       {{totalCommonCratePrice + totalRareCratePrice + totalEpicCratePrice}} SOUL
     </div>
   </div>
-  <button class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8">
+  <button
+    class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8"
+    onclick="PurchaseBox()"
+  >
     BUY
   </button>
 </div>
