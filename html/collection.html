@@ -18,8 +18,13 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-crate-image"
       />
-      <p class="break-nft-text">#{{eachBox.tokenID}}</p>
-      <button class="open-crate">OPEN</button>
+      <p class="break-nft-text">#{{eachBox.tokenID | limitTo : 7}}</p>
+      <button
+        class="open-crate"
+        ng-click="burnOnWebsite('boxID' + eachGhost.tokenID)"
+      >
+        OPEN
+      </button>
     </div>
   </div>
 </div>
@@ -43,7 +48,7 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">#{{eachGhost.tokenID}}</p>
+      <p class="break-nft-text">#{{eachGhost.tokenID | limitTo : 7}}</p>
     </div>
   </div>
 </div>
@@ -67,7 +72,7 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">#{{eachHammer.tokenID}}</p>
+      <p class="break-nft-text">#{{eachHammer.tokenID | limitTo : 7}}</p>
     </div>
   </div>
 </div>
@@ -91,7 +96,7 @@
         sizes="(max-width: 479px) 85vw, (max-width: 767px) 88vw, (max-width: 991px) 76vw, 753.3681030273438px"
         class="break-nft-image"
       />
-      <p class="break-nft-text">#{{eachBadge.tokenID}}</p>
+      <p class="break-nft-text">#{{eachBadge.tokenID | limitTo : 7}}</p>
     </div>
   </div>
 </div>

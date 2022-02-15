@@ -104,6 +104,41 @@ app.controller("myCtrl", async function ($scope) {
       $providerHint
     );
   };
+
+  $scope.burnOnWebsite = function ($boxNFTID) {
+    const myAddress = link.account.address;
+    const boxNFTID = $boxNFTID.substring(5);
+    console.log(boxNFTID);
+
+    let gasPrice = 100000;
+    let gaslimit = 10000;
+
+    let sb = new ScriptBuilder();
+    let script = sb
+      .callContract("gas", "AllowGas", [
+        myAddress,
+        sb.nullAddress(),
+        gasPrice,
+        gaslimit,
+      ])
+      .callContract(NFTSymbol, "burnOnWebsite", [
+        myAddress,
+        NFTSymbol,
+        boxNFTID,
+      ])
+      .callContract("gas", "SpendGas", [myAddress])
+      .endScript();
+
+    link.sendTransaction("main", script, "festival1.0", function (result) {
+      console.log("========", result);
+      if (!result.success) {
+        alert("Failed to burn");
+      } else {
+        alert("Successfully burned. See the NFTs on Ghost Market");
+        fetchBoxBalance(myAddress);
+      }
+    });
+  };
 });
 
 const getCurretSupplies = async () => {
@@ -174,10 +209,10 @@ const fetchBalance = async (myAddress, type) => {
           console.log(type, series, nftName);
           const nftObj = {
             name: nftName,
-            tokenID:
-              nftIDs[j].toString().substr(0, 5) +
-              "..." +
-              nftIDs[j].toString().substr(73),
+            tokenID: nftIDs[j].toString(),
+            // nftIDs[j].toString().substr(0, 5) +
+            // "..." +
+            // nftIDs[j].toString().substr(73),
           };
 
           if (type == 1) {
