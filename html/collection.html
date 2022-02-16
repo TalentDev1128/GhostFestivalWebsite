@@ -1,6 +1,6 @@
 <div class="title">Your Collection</div>
 <div class="your-sets">Your Crates</div>
-<div class="break-set-group row" ng-repeat="boxRow in boxRows">
+<div class="break-set-group row" ng-repeat="boxRow in boxRowsSplitted">
   <div
     class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     ng-repeat="eachBox in boxRow"
@@ -30,7 +30,7 @@
 </div>
 
 <div class="your-sets">Your Ghosts</div>
-<div class="break-set-group row" ng-repeat="ghostRow in ghostRows">
+<div class="break-set-group row" ng-repeat="ghostRow in ghostRowsSplitted">
   <div
     class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     ng-repeat="eachGhost in ghostRow"
@@ -54,7 +54,7 @@
 </div>
 
 <div class="your-sets">Your Hammers</div>
-<div class="break-set-group row" ng-repeat="hammerRow in hammerRows">
+<div class="break-set-group row" ng-repeat="hammerRow in hammerRowsSplitted">
   <div
     class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     ng-repeat="eachHammer in hammerRow"
@@ -78,7 +78,7 @@
 </div>
 
 <div class="your-sets">Your Badges</div>
-<div class="break-set-group row" ng-repeat="badgeRow in badgeRows">
+<div class="break-set-group row" ng-repeat="badgeRow in badgeRowsSplitted">
   <div
     class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     ng-repeat="eachBadge in badgeRow"

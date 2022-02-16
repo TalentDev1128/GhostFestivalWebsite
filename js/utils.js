@@ -18,6 +18,22 @@ const formatWalletAddress = (myAddress) => {
     myAddress.substring(0, 5) + "..." + myAddress.substring(43);
 };
 
+function validateEmpty() {
+  let isValid = true;
+
+  for (let i = 0; i < arguments.length; i++) {
+    if (!arguments[i]) {
+      isValid = false;
+      break;
+    }
+  }
+  return isValid;
+}
+
+function validateDuplicate(myArray) {
+  return myArray.length === new Set(myArray).size;
+}
+
 // Get the modal
 var modal = document.getElementById("walletModal");
 

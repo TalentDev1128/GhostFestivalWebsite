@@ -811,6 +811,47 @@ class PhantasmaLink {
     });
   }
 
+  invokeRawScript(
+    chain,
+    script,
+    payload,
+    callback,
+    platform = "phantasma",
+    signature = "Ed25519"
+  ) {
+    if (!this.socket) {
+      callback("not logged in");
+      return;
+    }
+    if (script.length >= 8192) {
+      alert("script too big, sorry :(");
+      return;
+    }
+    if (payload == null) {
+      payload = "";
+    } else if (typeof payload === "string") {
+      let sb = new ScriptBuilder();
+      let bytes = sb.rawString(payload);
+      sb.appendBytes(bytes);
+      payload = sb.script;
+    } else {
+      alert("invalid payload, sorry :(");
+      return;
+    }
+
+    let requestStr = chain + "/" + script;
+    if (this.version >= 2) {
+      requestStr = requestStr;
+    } else {
+      requestStr = this.nexus + "/" + requestStr;
+    }
+
+    this.sendLinkRequest("invokeScript/" + requestStr, function (result) {
+      //that.hideModal();
+      callback(result);
+    });
+  }
+
   sendLinkRequest(request, callback) {
     console.log("Sending Phantasma Link request: " + request);
 

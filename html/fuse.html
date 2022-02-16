@@ -22,7 +22,10 @@
           class="crate-image"
         />
       </div>
-      <p class="paragraph">Name name<br />Level X</p>
+      <p class="paragraph">
+        Name:<br />
+        {{selectedFuseSource.name}}<br />Level: {{selectedFuseSource.level}}
+      </p>
       <div class="dropdown upgrade-choose-btn-container">
         <button
           class="btn btn-secondary dropdown-toggle upgrade-choose-btn"
@@ -33,10 +36,26 @@
         >
           Choose
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <ul
+          class="dropdown-menu dropdown-button"
+          aria-labelledby="dropdownMenuButton1"
+        >
+          <li
+            ng-repeat="ghostRow in ghostRows"
+            ng-click="setSelected(ghostRow, 2)"
+          >
+            <a class="dropdown-item dropdown-text" href="#"
+              >{{ghostRow.name}} #{{ghostRow.tokenID | limitTo : 5}}</a
+            >
+          </li>
+          <li
+            ng-repeat="hammerRow in hammerRows"
+            ng-click="setSelected(hammerRow, 2)"
+          >
+            <a class="dropdown-item dropdown-text" href="#"
+              >{{hammerRow.name}} #{{hammerRow.tokenID | limitTo : 5}}</a
+            >
+          </li>
         </ul>
       </div>
     </div>
@@ -61,7 +80,10 @@
           class="crate-image"
         />
       </div>
-      <p class="paragraph">Name name<br />Level X</p>
+      <p class="paragraph">
+        Name:<br />
+        {{selectedFuseTarget.name}}<br />Level: {{selectedFuseTarget.level}}
+      </p>
       <div class="dropdown upgrade-choose-btn-container">
         <button
           class="btn btn-secondary dropdown-toggle upgrade-choose-btn"
@@ -72,10 +94,26 @@
         >
           Choose
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <ul
+          class="dropdown-menu dropdown-button"
+          aria-labelledby="dropdownMenuButton1"
+        >
+          <li
+            ng-repeat="ghostRow in ghostRows"
+            ng-click="setSelected(ghostRow, 3)"
+          >
+            <a class="dropdown-item dropdown-text" href="#"
+              >{{ghostRow.name}} #{{ghostRow.tokenID | limitTo : 5}}</a
+            >
+          </li>
+          <li
+            ng-repeat="hammerRow in hammerRows"
+            ng-click="setSelected(hammerRow, 3)"
+          >
+            <a class="dropdown-item dropdown-text" href="#"
+              >{{hammerRow.name}} #{{hammerRow.tokenID | limitTo : 5}}</a
+            >
+          </li>
         </ul>
       </div>
     </div>
