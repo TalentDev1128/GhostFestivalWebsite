@@ -37,6 +37,7 @@ app.controller("myCtrl", async function ($scope) {
   $scope.hammerRows = [];
   $scope.badgeRows = [];
 
+  $scope.selectedRentBadge = [];
   $scope.mySets = [];
 
   const currentSupplies = await getCurretSupplies();
@@ -121,7 +122,7 @@ app.controller("myCtrl", async function ($scope) {
     $scope.hammerRowsSplitted = hammerRowsSplitted;
     $scope.badgeRowsSplitted = badgeRowsSplitted;
 
-    $scope.badgeRows = badgeRows;
+    $scope.boxRows = boxRows;
     $scope.ghostRows = ghostRows;
     $scope.hammerRows = hammerRows;
     $scope.badgeRows = badgeRows;
@@ -258,12 +259,12 @@ app.controller("myCtrl", async function ($scope) {
     const myAddress = linkToGFESCROW.account.address;
     const hammer = $scope.selectedRentHammer;
     const ghost = $scope.selectedRentGhost;
-    const badge1 = $scope.selectedRentBadge1;
-    const badge2 = $scope.selectedRentBadge2;
-    const badge3 = $scope.selectedRentBadge3;
-    const badge4 = $scope.selectedRentBadge4;
-    const badge5 = $scope.selectedRentBadge5;
-    const badge6 = $scope.selectedRentBadge6;
+    const badge1 = $scope.selectedRentBadge[0];
+    const badge2 = $scope.selectedRentBadge[1];
+    const badge3 = $scope.selectedRentBadge[2];
+    const badge4 = $scope.selectedRentBadge[3];
+    const badge5 = $scope.selectedRentBadge[4];
+    const badge6 = $scope.selectedRentBadge[5];
 
     const isValidEmpty = validateEmpty(
       hammer,
@@ -278,21 +279,6 @@ app.controller("myCtrl", async function ($scope) {
 
     if (!isValidEmpty) {
       alert("Some of your token IDs are empty");
-      return;
-    }
-
-    const isValidDuplicate = validateDuplicate([
-      hammer.tokenID,
-      ghost.tokenID,
-      badge1.tokenID,
-      badge2.tokenID,
-      badge3.tokenID,
-      badge4.tokenID,
-      badge5.tokenID,
-      badge6.tokenID,
-    ]);
-    if (!isValidDuplicate) {
-      alert("You can not choose the same NFTs");
       return;
     }
 
@@ -386,18 +372,26 @@ app.controller("myCtrl", async function ($scope) {
   // 3 for fuse target
   // 4 for rentout ghost
   // 5 for rentout hammer
+  // 6 ~ 11 rentout badge
   $scope.setSelected = function ($selectedNFT, $type) {
     if ($type == 1) $scope.selectedForUpgrade = $selectedNFT;
     else if ($type == 2) $scope.selectedFuseSource = $selectedNFT;
     else if ($type == 3) $scope.selectedFuseTarget = $selectedNFT;
     else if ($type == 4) $scope.selectedRentGhost = $selectedNFT;
     else if ($type == 5) $scope.selectedRentHammer = $selectedNFT;
-    else if ($type == 6) $scope.selectedRentBadge1 = $selectedNFT;
-    else if ($type == 7) $scope.selectedRentBadge2 = $selectedNFT;
-    else if ($type == 8) $scope.selectedRentBadge3 = $selectedNFT;
-    else if ($type == 9) $scope.selectedRentBadge4 = $selectedNFT;
-    else if ($type == 10) $scope.selectedRentBadge5 = $selectedNFT;
-    else if ($type == 11) $scope.selectedRentBadge6 = $selectedNFT;
+    // do not allow duplicates for badges
+    if ($type >= 6 && $type <= 11) {
+      const duplicatePass = passedDuplicate(
+        $scope.selectedRentBadge,
+        $selectedNFT,
+        $type - 6
+      );
+      if (!duplicatePass) {
+        alert("This item is already selected");
+        return;
+      }
+      $scope.selectedRentBadge[$type - 6] = $selectedNFT;
+    }
   };
 
   $scope.getMySet = function () {
@@ -568,12 +562,16 @@ const fetchBalance = async (myAddress, type, shouldSplit) => {
           );
           nthNft = JSON.parse(nthNft);
           const series = nthNft[0].series;
-          const nftName = decodeVMObject(nthNft[0].ram).name;
-          const nftLevel = decodeVMObject(nthNft[0].ram).level;
+          const name = decodeVMObject(nthNft[0].ram).name;
+          const imageURL = convertImageURL(
+            decodeVMObject(nthNft[0].ram).imageURL
+          );
+          const level = decodeVMObject(nthNft[0].ram).level;
           const nftObj = {
-            name: nftName,
+            name: name,
+            imageURL: imageURL,
             tokenID: nftIDs[j].toString(),
-            level: nftLevel,
+            level: level,
           };
 
           if (type == 1) {
@@ -612,4 +610,13 @@ const fetchBalance = async (myAddress, type, shouldSplit) => {
       }
     }
   }
+};
+
+const convertImageURL = (imageURL) => {
+  let converted = imageURL;
+  if (imageURL.includes("ipfs://")) {
+    converted = imageURL.split("//")[1].split("/")[1];
+    converted = "../assets/" + converted;
+  }
+  return converted;
 };

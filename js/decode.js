@@ -93,27 +93,23 @@ function decodeVMObject(str) {
   const type = dec.readByte();
   switch (type) {
     case VMType.String:
-      console.log("type is string");
       return dec.readString();
     case VMType.Number:
-      console.log("type is number");
       return dec.readBigIntAccurate();
-      case VMType.Struct:
-        console.log("type is Struct");
-        const numFields = dec.readVarInt();
-        let res = {}
-        for (let i = 0; i < numFields; ++i) {
-          const keyType = dec.readByte()
-          const key = dec.readString()
-          const valueType = dec.readByte()
-          if (valueType == VMType.String) {
-            res[key] = dec.readString()
-          }
-          else if (valueType == VMType.Number) {
-            res[key] = dec.readBigInt()
-          }          
+    case VMType.Struct:
+      const numFields = dec.readVarInt();
+      let res = {};
+      for (let i = 0; i < numFields; ++i) {
+        const keyType = dec.readByte();
+        const key = dec.readString();
+        const valueType = dec.readByte();
+        if (valueType == VMType.String) {
+          res[key] = dec.readString();
+        } else if (valueType == VMType.Number) {
+          res[key] = dec.readBigInt();
         }
-        return res
+      }
+      return res;
     default:
       return "unsupported type " + type;
   }

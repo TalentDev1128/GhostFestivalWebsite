@@ -1,23 +1,21 @@
 <div class="title">Rent Out</div>
 <div class="box-group row">
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="box-for-badge">
+    <div class="box-for-rentout">
       <div class="sub-title">
         <h1 class="heading">
           Choose <br /><span class="text-span">Ghost</span>:
         </h1>
       </div>
       <div>
-        <img
-          sizes="(max-width: 479px) 91vw, (max-width: 767px) 234.58334350585938px, (max-width: 991px) 30vw, 297.76043701171875px"
-          srcset="
-            ../images/Render-1-test-p-500.png  500w,
-            ../images/Render-1-test-p-800.png  800w,
-            ../images/Render-1-test.png       1080w
-          "
-          src="../images/Render-1-test.png"
-          class="crate-image-for-badge"
-        />
+        <video
+          ng-src="{{selectedRentGhost ? selectedRentGhost.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          autoplay
+          loop
+          class="break-nft-image"
+        >
+          Sorry, your browser doesn't support embedded videos
+        </video>
       </div>
       <p class="paragraph">
         Name:<br />
@@ -50,23 +48,21 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="box-for-badge">
+    <div class="box-for-rentout">
       <div class="sub-title">
         <h1 class="heading">
           Choose <br /><span class="text-span">Hammer</span>:
         </h1>
       </div>
       <div>
-        <img
-          sizes="(max-width: 479px) 91vw, (max-width: 767px) 234.58334350585938px, (max-width: 991px) 30vw, 297.76043701171875px"
-          srcset="
-            ../images/Render-1-test-p-500.png  500w,
-            ../images/Render-1-test-p-800.png  800w,
-            ../images/Render-1-test.png       1080w
-          "
-          src="../images/Render-1-test.png"
-          class="crate-image-for-badge"
-        />
+        <video
+          ng-src="{{selectedRentHammer ? selectedRentHammer.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          autoplay
+          loop
+          class="break-nft-image"
+        >
+          Sorry, your browser doesn't support embedded videos
+        </video>
       </div>
       <p class="paragraph">
         Name:<br />
@@ -99,7 +95,7 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="box-for-badge">
+    <div class="box-for-rentout">
       <div class="sub-title">
         <h1 class="heading">
           Choose <br /><span class="text-span">Badges</span>:
@@ -108,20 +104,17 @@
       <div class="badge-box">
         <div>
           <p class="badge-text">badge 1‍</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[0] ? selectedRentBadge[0].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge1 ? (selectedRentBadge1.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[0] ? (selectedRentBadge[0].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button
@@ -150,20 +143,17 @@
         </div>
         <div>
           <p class="badge-text">badge 2</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[1] ? selectedRentBadge[1].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge2 ? (selectedRentBadge2.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[1] ? (selectedRentBadge[1].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button
@@ -194,20 +184,17 @@
       <div class="badge-box">
         <div>
           <p class="badge-text">badge 3‍</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[2] ? selectedRentBadge[2].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge3 ? (selectedRentBadge3.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[2] ? (selectedRentBadge[2].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button
@@ -236,20 +223,17 @@
         </div>
         <div>
           <p class="badge-text">badge 4</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[3] ? selectedRentBadge[3].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge4 ? (selectedRentBadge4.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[3] ? (selectedRentBadge[3].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button
@@ -280,20 +264,17 @@
       <div class="badge-box">
         <div>
           <p class="badge-text">badge 5‍</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[4] ? selectedRentBadge[4].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge5 ? (selectedRentBadge5.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[4] ? (selectedRentBadge[4].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button
@@ -322,20 +303,17 @@
         </div>
         <div>
           <p class="badge-text">badge 6</p>
-          <img
-            sizes="(max-width: 479px) 87vw, (max-width: 767px) 38vw, (max-width: 991px) 28vw, 277.76043701171875px"
-            src="../images/Render-1-test.png"
-            loading="lazy"
-            srcset="
-              images/Render-1-test-p-500.png  500w,
-              images/Render-1-test-p-800.png  800w,
-              images/Render-1-test.png       1080w
-            "
+          <video
+            ng-src="{{selectedRentBadge[5] ? selectedRentBadge[5].imageURL : '../assets/badge_normal.mp4'}}"
+            autoplay
+            loop
             class="badge-box-image"
-          />
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
           <p class="paragraph">
-            {{selectedRentBadge6 ? (selectedRentBadge6.tokenID | limitTo : 5) :
-            'Token ID'}}
+            {{selectedRentBadge[5] ? (selectedRentBadge[5].tokenID | limitTo :
+            5) : 'Token ID'}}
           </p>
           <div class="dropdown upgrade-choose-btn-container">
             <button

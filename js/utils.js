@@ -34,6 +34,19 @@ function validateDuplicate(myArray) {
   return myArray.length === new Set(myArray).size;
 }
 
+const passedDuplicate = (srcArr, selectedItem, index) => {
+  console.log(srcArr, selectedItem, index);
+  let passed = true;
+  for (let i = 0; i < srcArr.length; i++) {
+    if (i == index) continue;
+    if (srcArr[i] == selectedItem) {
+      passed = false;
+      break;
+    }
+  }
+  return passed;
+};
+
 // Get the modal
 var modal = document.getElementById("walletModal");
 
