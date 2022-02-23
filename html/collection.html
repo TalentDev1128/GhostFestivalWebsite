@@ -1,90 +1,133 @@
 <div class="title">Your Collection</div>
 <div class="your-sets">Your Crates</div>
-<div class="break-set-group row" ng-repeat="boxRow in boxRowsSplitted">
-  <div
-    class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-    ng-repeat="eachBox in boxRow"
-  >
-    <div class="break-set-each-small">
-      <p class="break-nft-number">{{eachBox.name}}</p>
-      <video
-        ng-src="{{eachBox.imageURL}}"
-        autoplay
-        loop
-        class="break-nft-image"
+<div ng-if="!walletConnected">
+  <p class="connect-wallet-text">Connect your wallet</p>
+</div>
+<div ng-if="walletConnected">
+  <div ng-if="boxRowsSplitted.length == 0">
+    <p class="connect-wallet-text">Empty</p>
+  </div>
+  <div ng-if="boxRowsSplitted.length != 0">
+    <div class="break-set-group row" ng-repeat="boxRow in boxRowsSplitted">
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        ng-repeat="eachBox in boxRow"
       >
-        Sorry, your browser doesn't support embedded videos
-      </video>
-      <p class="break-nft-text">#{{eachBox.tokenID | limitTo : 7}}</p>
-      <button
-        class="open-crate"
-        ng-click="burnOnWebsite('boxID' + eachGhost.tokenID)"
-      >
-        OPEN
-      </button>
+        <div class="break-set-each-small">
+          <p class="break-nft-number">{{eachBox.name}}</p>
+          <video
+            ng-src="{{eachBox.imageURL}}"
+            autoplay
+            loop
+            class="break-nft-image"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+          <p class="break-nft-text">#{{eachBox.tokenID | limitTo : 7}}</p>
+          <button
+            class="open-crate"
+            ng-click="burnOnWebsite('boxID' + eachGhost.tokenID)"
+          >
+            OPEN
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="your-sets">Your Ghosts</div>
-<div class="break-set-group row" ng-repeat="ghostRow in ghostRowsSplitted">
-  <div
-    class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-    ng-repeat="eachGhost in ghostRow"
-  >
-    <div class="break-set-each-large">
-      <p class="break-nft-number">{{eachGhost.name}}</p>
-      <video
-        ng-src="{{eachGhost.imageURL}}"
-        autoplay
-        loop
-        class="break-nft-image"
+<div ng-if="!walletConnected">
+  <p class="connect-wallet-text">Connect your wallet</p>
+</div>
+<div ng-if="walletConnected">
+  <div ng-if="ghostRowsSplitted.length == 0">
+    <p class="connect-wallet-text">Empty</p>
+  </div>
+  <div ng-if="ghostRowsSplitted.length != 0">
+    <div class="break-set-group row" ng-repeat="ghostRow in ghostRowsSplitted">
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        ng-repeat="eachGhost in ghostRow"
       >
-        Sorry, your browser doesn't support embedded videos
-      </video>
-      <p class="break-nft-text">#{{eachGhost.tokenID | limitTo : 7}}</p>
+        <div class="break-set-each-large">
+          <p class="break-nft-number">{{eachGhost.name}}</p>
+          <video
+            ng-src="{{eachGhost.imageURL}}"
+            autoplay
+            loop
+            class="break-nft-image"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+          <p class="break-nft-text">#{{eachGhost.tokenID | limitTo : 7}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="your-sets">Your Hammers</div>
-<div class="break-set-group row" ng-repeat="hammerRow in hammerRowsSplitted">
-  <div
-    class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-    ng-repeat="eachHammer in hammerRow"
-  >
-    <div class="break-set-each-large">
-      <p class="break-nft-number">{{eachHammer.name}}</p>
-      <video
-        ng-src="{{eachHammer.imageURL}}"
-        autoplay
-        loop
-        class="break-nft-image"
+<div ng-if="!walletConnected">
+  <p class="connect-wallet-text">Connect your wallet</p>
+</div>
+<div ng-if="walletConnected">
+  <div ng-if="hammerRowsSplitted.length == 0">
+    <p class="connect-wallet-text">Empty</p>
+  </div>
+  <div ng-if="hammerRowsSplitted.length != 0">
+    <div
+      class="break-set-group row"
+      ng-repeat="hammerRow in hammerRowsSplitted"
+    >
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        ng-repeat="eachHammer in hammerRow"
       >
-        Sorry, your browser doesn't support embedded videos
-      </video>
-      <p class="break-nft-text">#{{eachHammer.tokenID | limitTo : 7}}</p>
+        <div class="break-set-each-large">
+          <p class="break-nft-number">{{eachHammer.name}}</p>
+          <video
+            ng-src="{{eachHammer.imageURL}}"
+            autoplay
+            loop
+            class="break-nft-image"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+          <p class="break-nft-text">#{{eachHammer.tokenID | limitTo : 7}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="your-sets">Your Badges</div>
-<div class="break-set-group row" ng-repeat="badgeRow in badgeRowsSplitted">
-  <div
-    class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-    ng-repeat="eachBadge in badgeRow"
-  >
-    <div class="break-set-each-small">
-      <p class="break-nft-number">{{eachBadge.name}}</p>
-      <video
-        ng-src="{{eachBadge.imageURL}}"
-        autoplay
-        loop
-        class="break-nft-image"
+<div ng-if="!walletConnected">
+  <p class="connect-wallet-text">Connect your wallet</p>
+</div>
+<div ng-if="walletConnected">
+  <div ng-if="badgeRowsSplitted.length == 0">
+    <p class="connect-wallet-text">Empty</p>
+  </div>
+  <div ng-if="badgeRowsSplitted.length != 0">
+    <div class="break-set-group row" ng-repeat="badgeRow in badgeRowsSplitted">
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        ng-repeat="eachBadge in badgeRow"
       >
-        Sorry, your browser doesn't support embedded videos
-      </video>
-      <p class="break-nft-text">#{{eachBadge.tokenID | limitTo : 7}}</p>
+        <div class="break-set-each-small">
+          <p class="break-nft-number">{{eachBadge.name}}</p>
+          <video
+            ng-src="{{eachBadge.imageURL}}"
+            autoplay
+            loop
+            class="break-nft-image"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+          <p class="break-nft-text">#{{eachBadge.tokenID | limitTo : 7}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

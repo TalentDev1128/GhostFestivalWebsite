@@ -620,6 +620,21 @@
   font-size: 16px;
 }
 
+.connect-wallet-text {
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 30px;
+  font-weight: 200;
+  text-shadow: 2px 2px 0 #5b00da;
+  display: flex;
+  justify-content: center;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

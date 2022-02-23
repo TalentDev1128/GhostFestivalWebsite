@@ -15,6 +15,8 @@ const linkToGFNFT = new PhantasmaLink(ghostFestivalSymbol);
 let linkToGFESCROW = new PhantasmaLink(gfescrowSymbol);
 
 app.controller("myCtrl", async function ($scope) {
+  $scope.walletConnected = false;
+
   $scope.commonCrateCount = 0;
   $scope.rareCrateCount = 0;
   $scope.epicCrateCount = 0;
@@ -88,6 +90,7 @@ app.controller("myCtrl", async function ($scope) {
           async function (success2) {
             modal.style.display = "none";
             if (success1 && success2) {
+              $scope.walletConnected = !$scope.walletConnected;
               const myAddress = linkToGFNFT.account.address;
               formatWalletAddress(myAddress);
               await $scope.fetchBalances(myAddress);
@@ -217,6 +220,10 @@ app.controller("myCtrl", async function ($scope) {
   };
 
   $scope.burnOnWebsite = function ($boxNFTID) {
+    if (!linkToGFNFT.account) {
+      alert("Please connect your wallet first");
+      return;
+    }
     const myAddress = linkToGFNFT.account.address;
     const boxNFTID = $boxNFTID.substring(5);
 
@@ -256,6 +263,10 @@ app.controller("myCtrl", async function ($scope) {
   };
 
   $scope.createSet = function () {
+    if (!linkToGFNFT.account) {
+      alert("Please connect your wallet first");
+      return;
+    }
     const myAddress = linkToGFESCROW.account.address;
     const hammer = $scope.selectedRentHammer;
     const ghost = $scope.selectedRentGhost;
@@ -485,6 +496,13 @@ app.controller("myCtrl", async function ($scope) {
         }
       }
     );
+  };
+
+  $scope.onChooseClicked = function () {
+    if (!linkToGFNFT.account) {
+      alert("Please connect your wallet first");
+      return;
+    }
   };
 });
 
