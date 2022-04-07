@@ -42,6 +42,10 @@ app.controller("myCtrl", async function ($scope) {
   $scope.selectedRentBadge = [];
   $scope.mySets = [];
 
+  $scope.isUpgradeSourceGhost = undefined;
+  $scope.isFuseSourceGhost = undefined;
+  $scope.isFuseTargetGhost = undefined;
+
   const currentSupplies = await getCurretSupplies();
 
   $scope.commonCurrentSupply = currentSupplies.series1;
@@ -219,6 +223,178 @@ app.controller("myCtrl", async function ($scope) {
     );
   };
 
+  $scope.upgradeNFT = async function () {
+    if (!linkToGFNFT.account) {
+      console.log("Connect your wallet to GFNFT App first");
+      alert("Connect your wallet to GFNFT App first");
+      return;
+    }
+    const myAddress = linkToGFNFT.account.address;
+
+    // const { currentTcktBurnAmount, currentTcktBurnPower } =
+    //   await calcTCKTBurnAmount();
+    const currentTcktBurnAmount = 1000;
+    const currentTcktBurnPower = 18;
+
+    const hammerorghost = $scope.selectedForUpgrade;
+    if (!hammerorghost) {
+      alert("Please choose the source NFT to be upgraded.");
+      return;
+    }
+    let type = !$scope.isUpgradeSourceGhost;
+
+    const nftObj = await ramByID(myAddress, hammerorghost.tokenID);
+    const level = parseInt(nftObj.level) + 1;
+    console.log(nftObj.level, nftObj.name, nftObj.description);
+
+    const gasPrice = 100000;
+    const gaslimit = 10000;
+
+    const sb = new ScriptBuilder();
+    const script = sb
+      .callContract("gas", "AllowGas", [
+        myAddress,
+        sb.nullAddress(),
+        gasPrice,
+        gaslimit,
+      ])
+      .callContract(ghostFestivalSymbol, "upgradeNFT", [
+        type,
+        myAddress,
+        hammerorghost.tokenID,
+        currentTcktBurnAmount,
+        currentTcktBurnPower,
+        nftObj.name,
+        nftObj.description,
+        nftObj.imageURL,
+        nftObj.infoURL,
+        nftObj.rarity,
+        nftObj.model,
+        type === 1 ? nftObj.hammerType : nftObj.ghostType,
+        level,
+        nftObj.infusedType1,
+        nftObj.infusedType2,
+        type === 2 ? true : true,
+      ])
+      .callContract("gas", "SpendGas", [myAddress])
+      .endScript();
+
+    linkToGFNFT.sendTransaction(
+      "main",
+      script,
+      "festival1.0",
+      async function (result) {
+        console.log("========", result);
+        if (!result || !result.success)
+          alert("Failed to upgrade " + (type === 1 ? "Hammer" : "Ghost"));
+        else {
+          await $scope.fetchBalances(myAddress);
+          alert("successfully upgraded " + (type === 1 ? "Hammer" : "Ghost"));
+        }
+      }
+    );
+  };
+
+  $scope.fuseNFT = async function () {
+    if (!linkToGFNFT.account) {
+      alert("Connect your wallet to GFNFT App first");
+      return;
+    }
+    const myAddress = linkToGFNFT.account.address;
+
+    // const { currentTcktBurnAmount, currentTcktBurnPower } =
+    //   await calcTCKTBurnAmount();
+    const currentTcktBurnAmount = 1000;
+    const currentTcktBurnPower = 18;
+
+    const source = $scope.selectedFuseSource;
+    const target = $scope.selectedFuseTarget;
+    if (!source || !target) {
+      alert("Please choose the source and target NFTs first.");
+      return;
+    }
+
+    if (source.tokenID == target.tokenID) {
+      alert("The source and target NFTs cannot be the same one.");
+      return;
+    }
+    let type = !$scope.isFuseSourceGhost;
+
+    const sourceNFTObj = await ramByID(myAddress, source.tokenID);
+    const targetNFTObj = await ramByID(myAddress, target.tokenID);
+    console.log(source.tokenID, sourceNFTObj.name);
+    console.log(target.tokenID, targetNFTObj.name);
+
+    let infusedType1 = targetNFTObj.infusedType1;
+    let infusedType2 = targetNFTObj.infusedType2;
+    // check if the target is already filled all in InfusedType1 and InfusedType2
+    if (infusedType1 !== "None" && infusedType2 !== "None") {
+      alert(
+        "The target nft is already filled for infusion, no more infusion allowed"
+      );
+      return;
+    }
+
+    if (infusedType1 === "None") {
+      infusedType1 =
+        type === 1 ? sourceNFTObj.hammerType : sourceNFTObj.ghostType;
+      infusedType2 = "None";
+    } else if (infusedType2 === "None") {
+      infusedType1 =
+        type === 1 ? targetNFTObj.hammerType : targetNFTObj.ghostType;
+      infusedType2 =
+        type === 1 ? sourceNFTObj.hammerType : sourceNFTObj.ghostType;
+    }
+
+    const gasPrice = 100000;
+    const gaslimit = 10000;
+
+    const sb = new ScriptBuilder();
+    const script = sb
+      .callContract("gas", "AllowGas", [
+        myAddress,
+        sb.nullAddress(),
+        gasPrice,
+        gaslimit,
+      ])
+      .callContract(ghostFestivalSymbol, "fuseNFT", [
+        type,
+        myAddress,
+        target.tokenID,
+        source.tokenID,
+        currentTcktBurnAmount,
+        currentTcktBurnPower,
+        targetNFTObj.name,
+        targetNFTObj.description,
+        targetNFTObj.imageURL,
+        targetNFTObj.infoURL,
+        targetNFTObj.rarity,
+        targetNFTObj.model,
+        type === 1 ? targetNFTObj.hammerType : targetNFTObj.ghostType,
+        targetNFTObj.level,
+        infusedType1,
+        infusedType2,
+        true,
+      ])
+      .callContract("gas", "SpendGas", [myAddress])
+      .endScript();
+
+    linkToGFNFT.sendTransaction(
+      "main",
+      script,
+      "festival1.0",
+      async function (result) {
+        console.log("========", result);
+        if (!result || !result.success)
+          alert("Failed to fuse " + (type === 1 ? "Hammer" : "Ghost"));
+        else {
+          await $scope.fetchBalances(myAddress);
+          alert("successfully fused " + (type === 1 ? "Hammer" : "Ghost"));
+        }
+      }
+    );
+  };
+
   $scope.burnOnWebsite = function ($boxNFTID) {
     if (!linkToGFNFT.account) {
       alert("Please connect your wallet first");
@@ -384,11 +560,38 @@ app.controller("myCtrl", async function ($scope) {
   // 4 for rentout ghost
   // 5 for rentout hammer
   // 6 ~ 11 rentout badge
-  $scope.setSelected = function ($selectedNFT, $type) {
-    if ($type == 1) $scope.selectedForUpgrade = $selectedNFT;
-    else if ($type == 2) $scope.selectedFuseSource = $selectedNFT;
-    else if ($type == 3) $scope.selectedFuseTarget = $selectedNFT;
-    else if ($type == 4) $scope.selectedRentGhost = $selectedNFT;
+
+  // isGhost;
+  // true for Ghost; default
+  // false for Hammer
+  $scope.setSelected = function ($selectedNFT, $type, $isGhost) {
+    console.log("===", $isGhost);
+    if ($type == 1) {
+      $scope.isUpgradeSourceGhost = $isGhost;
+      $scope.selectedForUpgrade = $selectedNFT;
+    } else if ($type == 2) {
+      if ($scope.isFuseTargetGhost == undefined)
+        $scope.isFuseSourceGhost = $isGhost;
+      else if ($scope.isFuseTargetGhost != $isGhost) {
+        alert(
+          "The source and the target NFTs should be both Ghosts or both Hammers."
+        );
+        return;
+      }
+      $scope.isFuseSourceGhost = $isGhost;
+      $scope.selectedFuseSource = $selectedNFT;
+    } else if ($type == 3) {
+      if ($scope.isFuseSourceGhost == undefined)
+        $scope.isFuseTargetGhost = $isGhost;
+      else if ($scope.isFuseSourceGhost != $isGhost) {
+        alert(
+          "The source and the target NFTs should be both Ghosts or both Hammers."
+        );
+        return;
+      }
+      $scope.isFuseTargetGhost = $isGhost;
+      $scope.selectedFuseTarget = $selectedNFT;
+    } else if ($type == 4) $scope.selectedRentGhost = $selectedNFT;
     else if ($type == 5) $scope.selectedRentHammer = $selectedNFT;
     // do not allow duplicates for badges
     if ($type >= 6 && $type <= 11) {

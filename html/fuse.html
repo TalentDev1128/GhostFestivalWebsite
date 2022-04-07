@@ -12,7 +12,7 @@
       </div>
       <div>
         <video
-          ng-src="{{selectedFuseSource ? selectedFuseSource.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          ng-src="{{selectedFuseSource ? selectedFuseSource.imageURL : '../assets/ghost_empty.mp4'}}"
           autoplay
           loop
           class="break-nft-image"
@@ -41,7 +41,7 @@
         >
           <li
             ng-repeat="ghostRow in ghostRows"
-            ng-click="setSelected(ghostRow, 2)"
+            ng-click="setSelected(ghostRow, 2, true)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{ghostRow.name}} #{{ghostRow.tokenID | limitTo : 5}}</a
@@ -49,7 +49,7 @@
           </li>
           <li
             ng-repeat="hammerRow in hammerRows"
-            ng-click="setSelected(hammerRow, 2)"
+            ng-click="setSelected(hammerRow, 2, false)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{hammerRow.name}} #{{hammerRow.tokenID | limitTo : 5}}</a
@@ -69,7 +69,7 @@
       </div>
       <div>
         <video
-          ng-src="{{selectedFuseTarget ? selectedFuseTarget.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          ng-src="{{selectedFuseTarget ? selectedFuseTarget.imageURL : '../assets/ghost_empty.mp4'}}"
           autoplay
           loop
           class="break-nft-image"
@@ -98,7 +98,7 @@
         >
           <li
             ng-repeat="ghostRow in ghostRows"
-            ng-click="setSelected(ghostRow, 3)"
+            ng-click="setSelected(ghostRow, 3, true)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{ghostRow.name}} #{{ghostRow.tokenID | limitTo : 5}}</a
@@ -106,7 +106,7 @@
           </li>
           <li
             ng-repeat="hammerRow in hammerRows"
-            ng-click="setSelected(hammerRow, 3)"
+            ng-click="setSelected(hammerRow, 3, false)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{hammerRow.name}} #{{hammerRow.tokenID | limitTo : 5}}</a
@@ -180,7 +180,10 @@
     <div class="total-text">Total</div>
     <div class="total-value">300 SOUL</div>
   </div>
-  <button class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8">
+  <button
+    class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8"
+    ng-click="fuseNFT()"
+  >
     Fuse
   </button>
 </div>

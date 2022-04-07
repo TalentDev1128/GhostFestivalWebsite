@@ -12,6 +12,9 @@ firebase.json
 
 # Firebase cache
 .firebase/
+.vscode/
+
+assets/
 
 # Firebase config
 

@@ -9,7 +9,7 @@
       </div>
       <div>
         <video
-          ng-src="{{selectedForUpgrade ? selectedForUpgrade.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          ng-src="{{selectedForUpgrade ? selectedForUpgrade.imageURL : '../assets/ghost_empty.mp4'}}"
           autoplay
           loop
           class="break-nft-image"
@@ -38,7 +38,7 @@
         >
           <li
             ng-repeat="ghostRow in ghostRows"
-            ng-click="setSelected(ghostRow, 1)"
+            ng-click="setSelected(ghostRow, 1, true)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{ghostRow.name}} #{{ghostRow.tokenID | limitTo : 5}}</a
@@ -46,7 +46,7 @@
           </li>
           <li
             ng-repeat="hammerRow in hammerRows"
-            ng-click="setSelected(hammerRow, 1)"
+            ng-click="setSelected(hammerRow, 1, false)"
           >
             <a class="dropdown-item dropdown-text" href="#"
               >{{hammerRow.name}} #{{hammerRow.tokenID | limitTo : 5}}</a
@@ -65,7 +65,7 @@
       </div>
       <div>
         <video
-          ng-src="{{selectedForUpgrade ? selectedForUpgrade.imageURL : '../assets/ghost_cobalt_blue.mp4'}}"
+          ng-src="{{selectedForUpgrade ? selectedForUpgrade.imageURL : '../assets/ghost_empty.mp4'}}"
           autoplay
           loop
           class="break-nft-image"
@@ -143,7 +143,10 @@
     <div class="total-text">Total</div>
     <div class="total-value">300 SOUL</div>
   </div>
-  <button class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8">
+  <button
+    class="upgrade-button col-lg-4 col-md-4 col-sm-8 col-xs-8"
+    ng-click="upgradeNFT()"
+  >
     UPGRADE
   </button>
 </div>
