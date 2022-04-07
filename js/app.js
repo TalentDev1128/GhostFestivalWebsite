@@ -134,9 +134,25 @@ app.controller("myCtrl", async function ($scope) {
     $scope.hammerRows = hammerRows;
     $scope.badgeRows = badgeRows;
 
+    $scope.selectedCrateTokenIds = [];
+
     await $scope.getMySet();
 
     $scope.$apply();
+  };
+
+  $scope.onCrateSelected = function (boxTokenId) {
+    // if selectedCrateTokenIds contains boxTokenId, add it, otherwise, remove it
+    if ($scope.selectedCrateTokenIds.indexOf(boxTokenId) == -1)
+      // not containing
+      $scope.selectedCrateTokenIds.push(boxTokenId);
+    // already containing
+    else
+      $scope.selectedCrateTokenIds = $scope.selectedCrateTokenIds.filter(
+        function (e) {
+          return e !== boxTokenId;
+        }
+      );
   };
 
   $scope.purchaseBox = function () {
@@ -395,6 +411,27 @@ app.controller("myCtrl", async function ($scope) {
     );
   };
 
+  // let script = sb.callContract("gas", "AllowGas", [
+  //   myAddress,
+  //   sb.nullAddress(),
+  //   gasPrice,
+  //   gaslimit,
+  // ]);
+
+  // for (let i = 0; i < commonMintNumber; i++) {
+  //   script = script.callContract(ghostFestivalSymbol, "mint", [myAddress, 1]);
+  // }
+
+  // for (let i = 0; i < rareMintNumber; i++) {
+  //   script = script.callContract(ghostFestivalSymbol, "mint", [myAddress, 2]);
+  // }
+
+  // for (let i = 0; i < epicMintNumber; i++) {
+  //   script = script.callContract(ghostFestivalSymbol, "mint", [myAddress, 3]);
+  // }
+
+  // script = script.callContract("gas", "SpendGas", [myAddress]).endScript();
+
   $scope.burnOnWebsite = function ($boxNFTID) {
     if (!linkToGFNFT.account) {
       alert("Please connect your wallet first");
@@ -407,20 +444,29 @@ app.controller("myCtrl", async function ($scope) {
     let gaslimit = 10000;
 
     let sb = new ScriptBuilder();
-    let script = sb
-      .callContract("gas", "AllowGas", [
-        myAddress,
-        sb.nullAddress(),
-        gasPrice,
-        gaslimit,
-      ])
-      .callContract(ghostFestivalSymbol, "burnOnWebsite", [
+    let script = sb.callContract("gas", "AllowGas", [
+      myAddress,
+      sb.nullAddress(),
+      gasPrice,
+      gaslimit,
+    ]);
+
+    if ($scope.selectedCrateTokenIds.indexOf(boxNFTID) == -1)
+      script = script.callContract(ghostFestivalSymbol, "burnOnWebsite", [
         myAddress,
         ghostFestivalSymbol,
         boxNFTID,
-      ])
-      .callContract("gas", "SpendGas", [myAddress])
-      .endScript();
+      ]);
+    else {
+      for (let i = 0; i < $scope.selectedCrateTokenIds.length; i++)
+        script = script.callContract(ghostFestivalSymbol, "burnOnWebsite", [
+          myAddress,
+          ghostFestivalSymbol,
+          $scope.selectedCrateTokenIds[i],
+        ]);
+    }
+
+    script = script.callContract("gas", "SpendGas", [myAddress]).endScript();
 
     linkToGFNFT.sendTransaction(
       "main",

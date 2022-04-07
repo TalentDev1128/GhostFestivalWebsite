@@ -14,6 +14,13 @@
         ng-repeat="eachBox in boxRow"
       >
         <div class="break-set-each-small">
+          <div class="form-check crate-checkbox-wrapper">
+            <input
+              class="form-check-input crate-checkbox"
+              type="checkbox"
+              ng-click="onCrateSelected(eachBox.tokenID)"
+            />
+          </div>
           <p class="break-nft-number">{{eachBox.name}}</p>
           <video
             ng-src="{{eachBox.imageURL}}"
@@ -24,12 +31,22 @@
             Sorry, your browser doesn't support embedded videos
           </video>
           <p class="break-nft-text">#{{eachBox.tokenID | limitTo : 7}}</p>
-          <button
-            class="open-crate"
-            ng-click="burnOnWebsite('boxID' + eachGhost.tokenID)"
-          >
-            OPEN
-          </button>
+          <div ng-if="selectedCrateTokenIds.includes(eachBox.tokenID)">
+            <button
+              class="open-crate-all"
+              ng-click="burnOnWebsite('boxID' + eachBox.tokenID)"
+            >
+              OPEN ALL
+            </button>
+          </div>
+          <div ng-if="!selectedCrateTokenIds.includes(eachBox.tokenID)">
+            <button
+              class="open-crate"
+              ng-click="burnOnWebsite('boxID' + eachBox.tokenID)"
+            >
+              OPEN
+            </button>
+          </div>
         </div>
       </div>
     </div>

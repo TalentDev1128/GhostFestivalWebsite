@@ -444,7 +444,7 @@
   border-color: #5b00da;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.7);
-  height: 470px;
+  height: 550px;
   margin-bottom: 5px;
 }
 
@@ -473,7 +473,7 @@
 }
 
 .break-nft-number {
-  margin-top: 35px;
+  margin-top: 15px;
   margin-bottom: 0px;
   font-family: "Varela Round", sans-serif;
   color: #fff;
@@ -535,6 +535,22 @@
   background-color: #f06;
   font-family: "Changa One", Impact, sans-serif;
   color: #ff0;
+  font-size: 24px;
+}
+
+.open-crate-all {
+  margin: 15px auto;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 10px 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #0f9;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #5b00da;
   font-size: 24px;
 }
 
@@ -661,6 +677,22 @@ a.disabled {
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+}
+
+.crate-checkbox-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.crate-checkbox {
+  margin: 30px 25px 0 0;
+  background-color: #0f9;
+  transform: scale(1.5);
+  border-radius: 0px !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #5b00da;
 }
 
 @media (max-width: 768px) {
