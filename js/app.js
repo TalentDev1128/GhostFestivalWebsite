@@ -68,7 +68,7 @@ app.controller("myCtrl", async function ($scope) {
   $scope.rareCurrentSupply = currentSupplies.series2;
   $scope.epicCurrentSupply = currentSupplies.series3;
 
-  $scope.rewardNFT = {};
+  $scope.rewardNFTs = [];
   $scope.$apply();
 
   // $crateType : 1 for common, 2 for rare, and 3 for epic
@@ -517,10 +517,19 @@ app.controller("myCtrl", async function ($scope) {
           );
           const rewardBadges = newBadges.filter((x) => !oldBadges.includes(x));
 
-          $scope.rewardNFT.burnedBox = burnedBoxes[0];
-          $scope.rewardNFT.rewardGhost = rewardGhosts[0];
-          $scope.rewardNFT.rewardHammer = rewardHammers[0];
-          $scope.rewardNFT.rewardBadge = rewardBadges[0];
+          for (let i = 0; i < burnedBoxes.length; i++) {
+            const rewardNFT = {
+              burnedBox: burnedBoxes[i],
+              rewardGhost: rewardGhosts[i],
+              rewardHammer: rewardHammers[i],
+              rewardBadge: rewardBadges[i],
+            };
+            $scope.rewardNFTs.push(rewardNFT);
+          }
+          // $scope.rewardNFT.burnedBoxes = burnedBoxes;
+          // $scope.rewardNFT.rewardGhostes = rewardGhosts;
+          // $scope.rewardNFT.rewardHammeres = rewardHammers;
+          // $scope.rewardNFT.rewardBadgees = rewardBadges;
 
           rewardModal.style.display = "block";
           $scope.$apply();

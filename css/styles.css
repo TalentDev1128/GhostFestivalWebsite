@@ -759,6 +759,8 @@ a.disabled {
   top: 10%;
   right: 10%;
   width: 65%;
+  max-height: 80vh;
+  overflow-y: auto;
   margin: auto;
   padding: 20px;
   border-style: solid;
@@ -778,7 +780,7 @@ a.disabled {
 .rewardGroup {
   border-radius: 20px;
   background-color: #5b00da;
-  margin: auto 20px;
+  margin: 25px 20px;
 }
 
 .crate-checkbox-wrapper {
@@ -886,7 +888,7 @@ a {
   .rewardGroup {
     border-radius: 20px;
     background-color: #5b00da;
-    margin: auto 0px;
+    margin: 25px 0px;
   }
 
   .close-reward-btn {
@@ -904,5 +906,9 @@ a {
     font-size: 24px;
     width: 100%;
     justify-content: center;
+  }
+
+  .m-20-0 {
+    margin: 20px 0 105px 0;
   }
 }

@@ -367,7 +367,7 @@
 <div id="rewardModal" class="reward-modal">
   <div class="reward-modal-content">
     <h1 class="reward-welcome">Congratulations! You got:</h1>
-    <div class="rewardGroup row">
+    <div class="rewardGroup row" ng-repeat="rewardNFT in rewardNFTs">
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
         <div class="reward-box-wrapper">
           <video
@@ -377,9 +377,7 @@
             class="w-100"
           >
         </div>
-        <div class="m-10-0 reward-font">
-          #{{rewardNFT.burnedBox.tokenID | limitTo : 7}}
-        </div>
+        <div class="m-10-0 reward-font">#{{rewardNFT.burnedBox.tokenID | limitTo : 7}}</div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
         <div class="reward-box-wrapper">
@@ -390,9 +388,7 @@
             class="reward-ghost-image w-100"
           >
         </div>
-        <div class="m-10-0 reward-font">
-          #{{rewardNFT.rewardGhost.tokenID | limitTo : 7}}
-        </div>
+        <div class="m-10-0 reward-font">{{rewardNFT.rewardGhost.name}}</div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
         <div class="reward-box-wrapper">
@@ -405,9 +401,7 @@
             Sorry, your browser doesn't support embedded videos
           </video>
         </div>
-        <div class="m-10-0 reward-font">
-          #{{rewardNFT.rewardHammer.tokenID | limitTo : 7}}
-        </div>
+        <div class="m-10-0 reward-font">{{rewardNFT.rewardHammer.name}}</div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
         <div class="reward-box-wrapper">
@@ -420,11 +414,10 @@
             Sorry, your browser doesn't support embedded videos
           </video>
         </div>
-        <div class="m-10-0 reward-font">
-          #{{rewardNFT.rewardBadge.tokenID | limitTo : 7}}
-        </div>
+        <div class="m-10-0 reward-font">{{rewardNFT.rewardBadge.name}}</div>
       </div>
     </div>
+    
     <div class="reward-footer row">
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-10-0">
         <button class="view-on-market">
