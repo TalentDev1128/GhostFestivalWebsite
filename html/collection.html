@@ -362,3 +362,80 @@
     </div>
   </div>
 </div>
+
+<!-- The Modal -->
+<div id="rewardModal" class="reward-modal">
+  <div class="reward-modal-content">
+    <h1 class="reward-welcome">Congratulations! You got:</h1>
+    <div class="rewardGroup row">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+        <div class="reward-box-wrapper">
+          <video
+            ng-src="{{rewardNFT.burnedBox.imageURL}}"
+            autoplay
+            loop
+            class="w-100"
+          >
+        </div>
+        <div class="m-10-0 reward-font">
+          #{{rewardNFT.burnedBox.tokenID | limitTo : 7}}
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+        <div class="reward-box-wrapper">
+          <video
+            ng-src="{{rewardNFT.rewardGhost.imageURL}}"
+            autoplay
+            loop
+            class="reward-ghost-image w-100"
+          >
+        </div>
+        <div class="m-10-0 reward-font">
+          #{{rewardNFT.rewardGhost.tokenID | limitTo : 7}}
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+        <div class="reward-box-wrapper">
+          <video
+            ng-src="{{rewardNFT.rewardHammer.imageURL}}"
+            autoplay
+            loop
+            class="reward-ghost-image w-100"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+        </div>
+        <div class="m-10-0 reward-font">
+          #{{rewardNFT.rewardHammer.tokenID | limitTo : 7}}
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+        <div class="reward-box-wrapper">
+          <video
+            ng-src="{{rewardNFT.rewardBadge.imageURL}}"
+            autoplay
+            loop
+            class="w-100"
+          >
+            Sorry, your browser doesn't support embedded videos
+          </video>
+        </div>
+        <div class="m-10-0 reward-font">
+          #{{rewardNFT.rewardBadge.tokenID | limitTo : 7}}
+        </div>
+      </div>
+    </div>
+    <div class="reward-footer row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 m-10-0">
+        <button class="view-on-market">
+          <a href="https://ghostmarket.io/account/" target="_blank"
+            >VIEW ON GHOST MARKET</a
+          >
+        </button>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <button id="reward-close" class="close-reward-btn">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>

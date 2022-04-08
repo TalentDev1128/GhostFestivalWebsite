@@ -14,6 +14,22 @@ const apiUrl = "http://localhost:7078";
 const linkToGFNFT = new PhantasmaLink(ghostFestivalSymbol);
 let linkToGFESCROW = new PhantasmaLink(gfescrowSymbol);
 
+// Get the modal
+const rewardModal = document.getElementById("rewardModal");
+rewardModal.style.display = "none";
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == rewardModal) {
+    rewardModal.style.display = "none";
+  }
+};
+
+const rewardModalCloseBtn = document.getElementById("reward-close");
+rewardModalCloseBtn.onclick = function () {
+  rewardModal.style.display = "none";
+};
+
 app.controller("myCtrl", async function ($scope) {
   $scope.walletConnected = false;
 
@@ -51,6 +67,8 @@ app.controller("myCtrl", async function ($scope) {
   $scope.commonCurrentSupply = currentSupplies.series1;
   $scope.rareCurrentSupply = currentSupplies.series2;
   $scope.epicCurrentSupply = currentSupplies.series3;
+
+  $scope.rewardNFT = {};
   $scope.$apply();
 
   // $crateType : 1 for common, 2 for rare, and 3 for epic
@@ -477,8 +495,35 @@ app.controller("myCtrl", async function ($scope) {
         if (!result.success) {
           alert("Failed to burn");
         } else {
-          alert("Successfully burned. See the NFTs on Ghost Market");
+          // alert("Successfully burned. See the NFTs on Ghost Market");
+          const oldBoxes = $scope.boxRows;
+          const oldGhosts = $scope.ghostRows;
+          const oldHammers = $scope.hammerRows;
+          const oldBadges = $scope.badgeRows;
           await $scope.fetchBalances(myAddress);
+
+          const newBoxes = $scope.boxRows;
+          const newGhosts = $scope.ghostRows;
+          const newHammers = $scope.hammerRows;
+          const newBadges = $scope.badgeRows;
+
+          const burnedBoxes = oldBoxes.filter(
+            ({ tokenID: id1 }) =>
+              !newBoxes.some(({ tokenID: id2 }) => id2 === id1)
+          );
+          const rewardGhosts = newGhosts.filter((x) => !oldGhosts.includes(x));
+          const rewardHammers = newHammers.filter(
+            (x) => !oldHammers.includes(x)
+          );
+          const rewardBadges = newBadges.filter((x) => !oldBadges.includes(x));
+
+          $scope.rewardNFT.burnedBox = burnedBoxes[0];
+          $scope.rewardNFT.rewardGhost = rewardGhosts[0];
+          $scope.rewardNFT.rewardHammer = rewardHammers[0];
+          $scope.rewardNFT.rewardBadge = rewardBadges[0];
+
+          rewardModal.style.display = "block";
+          $scope.$apply();
         }
       }
     );

@@ -504,6 +504,36 @@
   margin: 40px 25px;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.m-10-0 {
+  margin: 10px 0;
+}
+
+.m-20-0 {
+  margin: 20px 0 10px 0;
+}
+
+.reward-ghost-image {
+  margin: 15px 5px;
+}
+
+.reward-font {
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 600;
+}
+
+.reward-box-wrapper {
+  display: flex;
+  align-items: center;
+  height: 360px;
+}
+
 .break-set-footer {
   margin: 5px 0;
   display: flex;
@@ -552,6 +582,39 @@
   font-family: "Changa One", Impact, sans-serif;
   color: #5b00da;
   font-size: 24px;
+}
+
+.view-on-market {
+  padding: 10px 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #0f9;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #5b00da;
+  font-size: 24px;
+}
+
+.close-reward-btn {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 10px 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #5b00da;
+  border-radius: 10px;
+  background-color: #f06;
+  font-family: "Changa One", Impact, sans-serif;
+  color: #ff0;
+  font-size: 24px;
+}
+
+.reward-footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
 }
 
 .mint-count-row {
@@ -679,6 +742,45 @@ a.disabled {
   animation-duration: 0.4s;
 }
 
+.reward-modal {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 5;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.51);
+}
+
+.reward-modal-content {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  right: 10%;
+  width: 65%;
+  margin: auto;
+  padding: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0f9;
+  border-radius: 20px;
+  background-color: #0c031d;
+  text-align: center;
+}
+
+.reward-welcome {
+  font-family: "Changa One", Impact, sans-serif;
+  color: #0f9;
+  font-size: 38px;
+}
+
+.rewardGroup {
+  border-radius: 20px;
+  background-color: #5b00da;
+  margin: auto 20px;
+}
+
 .crate-checkbox-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -693,6 +795,11 @@ a.disabled {
 
 input[type="checkbox"]:checked {
   background-color: #5b00da;
+}
+
+a {
+  color: #5b00da;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -739,6 +846,24 @@ input[type="checkbox"]:checked {
     margin-bottom: 5px;
   }
 
+  .reward-modal-content {
+    position: absolute;
+    left: 1%;
+    top: 10%;
+    right: 1%;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0f9;
+    border-radius: 20px;
+    background-color: #0c031d;
+    text-align: center;
+  }
+
   /* Modal Content/Box */
   .modal-content {
     background-color: #100a2a;
@@ -754,9 +879,30 @@ input[type="checkbox"]:checked {
   }
 
   .break-set-group {
-    margin-top: 10px;
     width: 95%;
-    margin-left: auto;
-    margin-right: 95%;
+    margin: 10px auto;
+  }
+
+  .rewardGroup {
+    border-radius: 20px;
+    background-color: #5b00da;
+    margin: auto 0px;
+  }
+
+  .close-reward-btn {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 10px 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5b00da;
+    border-radius: 10px;
+    background-color: #f06;
+    font-family: "Changa One", Impact, sans-serif;
+    color: #ff0;
+    font-size: 24px;
+    width: 100%;
+    justify-content: center;
   }
 }
