@@ -367,54 +367,56 @@
 <div id="rewardModal" class="reward-modal">
   <div class="reward-modal-content">
     <h1 class="reward-welcome">Congratulations! You got:</h1>
-    <div class="rewardGroup row" ng-repeat="rewardNFT in rewardNFTs">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
-        <div class="reward-box-wrapper">
-          <video
-            ng-src="{{rewardNFT.burnedBox.imageURL}}"
-            autoplay
-            loop
-            class="w-100"
-          >
+    <div class="rewardGroup-wrapper">
+      <div class="rewardGroup row" ng-repeat="rewardNFT in rewardNFTs">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+          <div class="reward-box-wrapper">
+            <video
+              ng-src="{{rewardNFT.burnedBox.imageURL}}"
+              autoplay
+              loop
+              class="w-100"
+            >
+          </div>
+          <div class="m-10-0 reward-font">#{{rewardNFT.burnedBox.tokenID | limitTo : 7}}</div>
         </div>
-        <div class="m-10-0 reward-font">#{{rewardNFT.burnedBox.tokenID | limitTo : 7}}</div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
-        <div class="reward-box-wrapper">
-          <video
-            ng-src="{{rewardNFT.rewardGhost.imageURL}}"
-            autoplay
-            loop
-            class="reward-ghost-image w-100"
-          >
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+          <div class="reward-box-wrapper">
+            <video
+              ng-src="{{rewardNFT.rewardGhost.imageURL}}"
+              autoplay
+              loop
+              class="reward-ghost-image w-100"
+            >
+          </div>
+          <div class="m-10-0 reward-font">{{rewardNFT.rewardGhost.name}}</div>
         </div>
-        <div class="m-10-0 reward-font">{{rewardNFT.rewardGhost.name}}</div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
-        <div class="reward-box-wrapper">
-          <video
-            ng-src="{{rewardNFT.rewardHammer.imageURL}}"
-            autoplay
-            loop
-            class="reward-ghost-image w-100"
-          >
-            Sorry, your browser doesn't support embedded videos
-          </video>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+          <div class="reward-box-wrapper">
+            <video
+              ng-src="{{rewardNFT.rewardHammer.imageURL}}"
+              autoplay
+              loop
+              class="reward-ghost-image w-100"
+            >
+              Sorry, your browser doesn't support embedded videos
+            </video>
+          </div>
+          <div class="m-10-0 reward-font">{{rewardNFT.rewardHammer.name}}</div>
         </div>
-        <div class="m-10-0 reward-font">{{rewardNFT.rewardHammer.name}}</div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
-        <div class="reward-box-wrapper">
-          <video
-            ng-src="{{rewardNFT.rewardBadge.imageURL}}"
-            autoplay
-            loop
-            class="w-100"
-          >
-            Sorry, your browser doesn't support embedded videos
-          </video>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 m-20-0">
+          <div class="reward-box-wrapper">
+            <video
+              ng-src="{{rewardNFT.rewardBadge.imageURL}}"
+              autoplay
+              loop
+              class="w-100"
+            >
+              Sorry, your browser doesn't support embedded videos
+            </video>
+          </div>
+          <div class="m-10-0 reward-font">{{rewardNFT.rewardBadge.name}}</div>
         </div>
-        <div class="m-10-0 reward-font">{{rewardNFT.rewardBadge.name}}</div>
       </div>
     </div>
     
@@ -426,7 +428,7 @@
           >
         </button>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 m-10-0">
         <button id="reward-close" class="close-reward-btn">CLOSE</button>
       </div>
     </div>

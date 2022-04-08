@@ -506,6 +506,7 @@
 
 .w-100 {
   width: 100%;
+  height: 100%;
 }
 
 .m-10-0 {
@@ -679,13 +680,15 @@
 .poltergeist {
   margin: 10px 0;
   width: 100%;
-  background-color: darkgreen;
+  background-color: #00ff99;
+  color: #6633cc;
 }
 
 .ecto {
   margin: 10px 0;
   width: 100%;
-  background-color: #ff2a00;
+  background-color: #6633cc;
+  color: #00ff99;
 }
 
 .dropdown-button {
@@ -760,7 +763,7 @@ a.disabled {
   right: 10%;
   width: 65%;
   max-height: 80vh;
-  overflow-y: auto;
+  height: 100%;
   margin: auto;
   padding: 20px;
   border-style: solid;
@@ -793,6 +796,11 @@ a.disabled {
   background-color: #0f9;
   transform: scale(1.5);
   border-radius: 0px !important;
+}
+
+.rewardGroup-wrapper {
+  overflow-y: auto;
+  max-height: 80%;
 }
 
 input[type="checkbox"]:checked {
@@ -854,8 +862,8 @@ a {
     top: 10%;
     right: 1%;
     width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
+    max-height: 85vh;
+    height: 100%;
     margin: auto;
     padding: 20px;
     border-style: solid;
@@ -895,7 +903,6 @@ a {
     display: flex;
     align-items: center;
     margin: auto;
-    padding: 10px 15px;
     border-style: solid;
     border-width: 3px;
     border-color: #5b00da;
@@ -903,12 +910,41 @@ a {
     background-color: #f06;
     font-family: "Changa One", Impact, sans-serif;
     color: #ff0;
-    font-size: 24px;
+    font-size: 19px;
     width: 100%;
     justify-content: center;
+    padding: 5px;
+  }
+
+  .reward-welcome {
+    font-family: "Changa One", Impact, sans-serif;
+    color: #0f9;
+    font-size: 25px;
+  }
+
+  .reward-footer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3px -14px;
+  }
+
+  .view-on-market {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5b00da;
+    border-radius: 10px;
+    background-color: #0f9;
+    font-family: "Changa One", Impact, sans-serif;
+    color: #5b00da;
+    font-size: 19px;
+    width: 100%;
   }
 
   .m-20-0 {
     margin: 20px 0 105px 0;
+  }
+
+  .m-10-0 {
+    margin: 1px 0;
   }
 }
